@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Tapestry&display=swap');
+
+*{
+    font-family: "Gill Sans", sans-serif; 
+}
+
+body{
+    background-color: #fff;
+}
+
+.logo{
+    
+    font-family: 'Tapestry', cursive;
+    font-size: 2rem;
+    
+}
+
+
+.navbar-nav{
+    font-size: 18.5px;
+}
+.about-us,.services{
+ margin-top: 20%;
+ margin-bottom:5%;
+}
+.card1:hover{
+    background: rgba(245, 146, 64, 0.753);
+    color: #fff;
+    transition: 1s ease;
+}
+
+.card2:hover{
+    background: rgba(33, 169, 144, 0.753);
+    color: #fff;
+    transition: 1s ease;
+}
+
+.card3:hover{
+    background: rgba(255, 55, 55, 0.782);
+    color: rgb(252, 252, 252);
+    transition: 1s ease;
+}
+
+.card4:hover{
+    background: rgba(15, 205, 85, 0.782);
+    color: rgb(251, 251, 251);
+    transition: 1s ease;
+}
+
+.footer{
+    margin-top:15%;
+    background-color: rgba(248, 247, 247, 0.882);
+    max-width: 100%;
+    max-height: fit-content;
+}
+
+
+.imgcmnt{
+    width:200px;
+    height: 200px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/*admin panel css*/
+.title-admin{
+    font-family: 'Grape Nuts', cursive;
+}
