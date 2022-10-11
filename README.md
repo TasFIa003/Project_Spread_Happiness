@@ -10,5 +10,3 @@ nodemon app.js
 ## License
 No license
 
-## Badges
-[![dependencies](https://img.shields.io/depfu/dependencies/github/Project_Spread_Happiness)](https:///github.com/Project_Spread_Happiness)
