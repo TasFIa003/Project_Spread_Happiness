@@ -1,0 +1,37 @@
+<%-include('partials/adminheader'); -%>
+<div class="container">
+    <div class="headline m-5">
+        <h4 class="text-center text-danger">Pending List of Cloth Donators who have no delivery man available</h4>
+    </div>
+
+    <table class="table table-light table-hover table-bordered">
+        <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Name</th>
+              <th scope="col">address</th>
+              <th scope="col">phone</th>
+              <th scope="col">post code</th>
+              <th scope="col">Thana</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%fpnds.forEach(function(fpn){%>
+            <tr>
+              <th scope="row"><%=fpn.id%></th>
+              <td><%=fpn.name%></td>
+              <td><%=fpn.address%></td>
+              <td><%=fpn.phone%></td>
+              <td><%=fpn.postcode%></td>
+              <td><%=fpn.thana%></td>
+            </tr>
+            <%});%>
+          </tbody>
+    </table>
+    
+</div>
+ <!-- Bootstrap Bundle with Popper -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ 
+</body>
+</html>

@@ -1,0 +1,76 @@
+<%-include('partials/adminheader'); -%>
+      <div class="container">
+        <%users.forEach(function(user){%>
+        <div class="card  m-5 shadow" style="max-width: 1040px;">
+       
+            <div class="row g-0">
+              
+              <div class=" col-md-8">
+                <div class="card-body">
+                  <div class="mb-3">
+                    <p class="card-title fs-5">Code: <span class="text-danger"><%=user.code%></span></p>
+                    <p class="card-text fs-5">Name: <span class=" text-muted"><%=user.name%></span></p>
+                    <p class="card-text fs-5">
+                      Age: <span class="text-muted "><%=user.age%> </span> 
+                     Class: <span class="text-muted"><%=user.class%></span> 
+                     Financial expense needed for education: <span class="  text-muted"><%=user.money%></span>
+                    </p>
+                    <p class="card-text fs-5">Details:</p>
+                    <p class="card-text fs-5"><%=user.details%></p>
+                    </div> 
+                    <p class="card-text fs-5">More Information: <a class="text-decoration-none" href="<%=user.link%>"><%=user.link%></a></p>
+                </div>
+
+        
+              <!-- Modal -->
+                
+              </div>
+              <div class="col-md-4">
+                <% if(user.image){ %>
+                  <img src="<%=user.image%>" class="img-fluid rounded m-3" alt="..." width="300px">
+                <%}else{%>
+                  <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPehc8rVewAwJzXHroVsbwRUWVOfRg4frqmw&usqp=CAU" class="img-fluid rounded m-2" alt="...">
+                <% } %> 
+
+              </div>
+              <a class="btn btn-success mx-auto m-3 w-25 text-center" href="/view-applicants/<%=user.code%>">View applicants</a>
+          </div>
+          
+        </div>
+        <%});%>
+        <div class=" mx-auto text-center">
+          <a class=" btn btn-outline-dark m-5 w-25 show-more">Show more</a>
+       </div>
+      </div>
+  
+    <!-- Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <script>
+     
+
+      $(document).ready(function(){   
+      //show more option
+       var size_item = $('.card').length;
+        var v=3;
+          // hide all divs with this class.
+          $('.card').hide(); 
+          //class:lt(index)-> selects elements with an index number less than a specified number.(lt - less than)
+          //suppose,let show-more-object is list . so first two elements will show up which are in 0 and 1 index < v=2.
+          $('.card:lt('+v+')').show();
+          //when btn will be  clicked ,this function will work.
+          $('.show-more').click(function () {
+          if(v+3<=size_item){
+            v=v+3; // will show next two index elements
+          }else{
+            v=size_item; //v+3>size_item
+          }
+          $('.card:lt('+v+')').show();
+           // hide show more button if all items are visible
+          if($(".card:visible").length >= size_item ){ $(".show-more").hide(); }
+         });
+      });
+    
+     </script>
+
+</body>
+</html>

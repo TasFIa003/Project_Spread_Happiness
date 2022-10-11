@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothes Donation | Spread Happiness</title>
+      <!---bootstrap cdn link-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <!--custom css link-->
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/otherpage.css">
+      <!---font awesome cdn bootstrap-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+      <!-- Bootstrap icon-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+      <!-- jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <!--navbar section-->
+    <nav class="navbar navbar-light shadow-lg" style="background-color: rgba(243, 247, 247, 0.637);">
+        <div class="container-fluid">
+          <a class="logo navbar-brand text-success d-inline-block align-text-top" href="/">Spread Happiness</a>
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <p class="nav-link text-muted h6"><i class="bi bi-envelope-fill"></i> teamSpreadHappiness@gmail.com</p>
+            </li>
+            <li class="nav-item">
+              <p class="nav-link text-muted h6"><i class="bi bi-telephone-fill"></i> +880-1706794170</p>
+            </li>
+            
+          </ul>
+        </div>
+    </nav>
+
+    <!-- about zakat-->
+    <div class="zakat container-fluid bg-black">
+        <div class="card card2 bg-black text-white shadow p-5">
+            <img src="images/ZAKAT-MONEY.jpg" class="card-img" alt="" height="700">
+            <div class="card-img-overlay mt-5  border-1">
+                <h5 class="card-title fs-4 text-center">Zakat</h5>
+                <p class="txt1 card-text fs-5 text-center">“And establish prayer and give zakat, and whatever good you put forward for yourselves – you will find it with Allah.” (2:110, Qur’an)</p>
+                <p class="txt2 card-text fs-6 text-center">As one of the pillars of Islam, zakat is a form of obligatory charity that has the potential to ease the suffering of millions.
+
+                With the literal meaning of the word being ‘to cleanse,’ Muslims believe that paying zakat purifies, increases and blesses the remainder of their wealth.<p class="text-end">“Whoever pays the zakat on his wealth will have its evil removed from him” (Ibn Khuzaimah and at-Tabarani)</p></p>
+                <p class="card-text text-center">
+                    Zakat is also a spiritual connection to one’s maker – to purify your wealth for the will of Allah is to acknowledge that everything we own belongs to Him, and it is for Him that we strive to end poverty and help our brothers and sisters.
+
+                    According to the Hanafi madhab, zakat is 2.5% of wealth that has been in one’s possession for a lunar year. If wealth amounts to less than a threshold figure, termed the nisab, then no zakat is payable. If wealth amounts to more than the nisab, zakat becomes obligatory
+                    <p class="text-end">“Of their goods, take zakat, so that you might purify and sanctify them.” (9:103, Qur’an)
+                    <p class="text-center">
+                    Islamic Relief uses zakat to help some of the world’s poorest and most destitute communities. Your donations bring joy to these people, and brings hope that one day they will be able to give rather than receive zakat</p>
+                   
+                    </p>
+                </p>
+               
+
+                
+              </div>
+        </div>
+      
+    </div>
+    <!----calculator making starts--->
+    <div class="nisab container">
+        <div class="">
+            <p class="fs-2">Calculate Your Zakat:</p>
+            <p class="fs-4 text-center bg-dark text-white">Nisab (updated 09 April 2020 BDT) </p>
+            <%zks.forEach(function(zk){%>
+            <input class="form-control text-center border-dark" type="text" value="<%=zk.nisab%>" aria-label="readonly input example" readonly>
+            <%});%>
+        </div>
+            <div class="asset mt-5">
+             <p class="fs-4 text-center bg-dark text-white">Asset</p>
+             <div class="m-3 mt-5 row">
+                <label  class="col-sm-2 col-form-label text-danger">Value of Gold (৳)
+                </label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control border-dark text-muted" id="gold" value="0.00">
+                </div>
+              </div>
+              <div class="m-3 row">
+                <label  class="col-sm-2 col-form-label text-danger">Value of Silver (৳)
+                </label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control border-dark text-muted" id="silver" value="0.00">
+                </div>
+              </div>
+              
+              <div class="m-3 row">
+                <label  class="col-sm-2 col-form-label text-danger">In hand and in bank accounts
+                </label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control border-dark text-muted" id="bankMoney" value="0.00">
+                </div>
+              </div>
+              <div class="m-3 row">
+                <label  class="col-sm-2 col-form-label text-danger">Deposited for ( e.g. Hajj )
+
+                </label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control border-dark text-muted" id="hajj" value="0.00">
+                </div>
+              </div>
+              <div class="m-3 row">
+                <label  class="col-sm-2 col-form-label text-danger">Given out in loans
+
+                </label>
+                <div class="col-sm-10">
+                  <input type="text"  class="form-control border-dark text-muted" id="loans" value="0.00">
+                </div>
+              </div>
+              <div class="m-3 row">
+                <label  class="col-sm-4 col-form-label text-danger">Business investments, shares, saving certificates, pensions</label>
+                <div class="col-sm-8">
+                  <input type="text"  class="form-control border-dark text-muted" id="investment" value="0.00">
+                </div>
+              </div>
+            </div>
+            <div class="liabilities mt-5">
+                <p class="fs-4 text-center bg-dark text-white">Liabilities</p>
+                <div class="m-3 mt-5 row">
+                   <label  class="col-sm-4 col-form-label text-danger">Borrowed money, goods bought on credit
+
+                   </label>
+                   <div class="col-sm-8">
+                     <input type="text"  class="form-control border-dark text-muted" id="borrowMoney" value="0.00">
+                   </div>
+                 </div>
+                 <div class="m-3 row">
+                   <label  class="col-sm-4 col-form-label text-danger">Wages due to employees
+
+                   </label>
+                   <div class="col-sm-8">
+                     <input type="text"  class="form-control border-dark text-muted" id="wages" value="0.00">
+                   </div>
+                 </div>
+                 
+                 <div class="m-3 row">
+                   <label  class="col-sm-4 col-form-label text-danger">Taxes, rent, utility bills due immediately
+
+                   </label>
+                   <div class="col-sm-8">
+                     <input type="text"  class="form-control border-dark text-muted" id="duePay" value="0.00">
+                   </div>
+                 </div>
+                </div>
+               <div class="container btns text-center p-3 ">
+                   <div class="row">
+                        <div class="col-sm-6">
+                           <button class="btn btn-outline-secondary w-100 mb-3" onclick="reset()">reset</button>
+                        </div>
+                        <div class="col-sm-6">
+                        <button class="btn btn-outline-success w-100" onclick="calculate()">Calculate</button>
+                        </div>
+                   </div>
+               </div>
+   
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="fs-2 text-success text-center fw-bold">Total Assets</p>
+                    <input class="form-control text-center border-success fw-bold fs-4 text-success" type="text" id="assets" value="0.00৳" 
+                   aria-label="readonly input example" readonly>
+                </div>
+                <div class="col-md-6">
+                    <p class="fs-2 text-danger text-center fw-bold">Zakat Payable</p>
+                    <input class="form-control text-center border-danger fs-4 fw-bold text-danger" type="text" id="zakat" value="0.00৳" aria-label="readonly input example" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!----calculator making ends--->
+    
+        <div class="footer">
+            <div class="fs-6  text-center border-2 border-light bg-light text-dark">	&copy; Tasfia Noor 2022</div>
+          </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <script>
+          function calculate(){
+          var gold=parseInt(document.getElementById("gold").value);
+          var silver=parseInt(document.getElementById("silver").value);
+          var bankMoney=parseInt(document.getElementById("bankMoney").value);
+          var hajj=parseInt(document.getElementById("hajj").value);
+          var loans=parseInt(document.getElementById("loans").value);
+          var investment=parseInt(document.getElementById("investment").value);
+          var borrowMoney=parseInt(document.getElementById("borrowMoney").value);
+          var wages=parseInt(document.getElementById("wages").value);
+          var duePay=parseInt(document.getElementById("duePay").value);
+
+          var total_assets=(gold+silver+bankMoney+hajj+loans+investment)-(borrowMoney+wages+duePay)
+          var payable=total_assets*0.25
+
+          document.getElementById("assets").value = total_assets;
+          document.getElementById("zakat").value = payable;
+
+
+
+        }
+
+        function reset(){
+          var gold=document.getElementById("gold").value='0.00';
+          var silver=document.getElementById("silver").value='0.00';
+          var bankMoney=document.getElementById("bankMoney").value='0.00';
+          var hajj=document.getElementById("hajj").value='0.00';
+          var loans=document.getElementById("loans").value='0.00';
+          var investment=document.getElementById("investment").value='0.00';
+          var borrowMoney=document.getElementById("borrowMoney").value='0.00';
+          var wages=document.getElementById("wages").value='0.00';
+          var duePay=document.getElementById("duePay").value='0.00';
+        }
+     </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!---http://rabiamoontrust.org/wp-content/uploads/2019/08/Zakat-Donations-Rabia-Moon-Trust.jpg-->

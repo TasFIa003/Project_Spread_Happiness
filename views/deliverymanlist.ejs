@@ -1,0 +1,87 @@
+<%-include('partials/adminheader'); -%>
+<div class="container">
+    <div class="headline m-5">
+        <h4 class="text-center text-danger"> Information Of Delivery Man</h4>
+    </div>
+    <div class="container">
+        <form action="/delivery-man-list-info" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label>Name:</label>
+                    <input class="form-control" type="text" name="name" id="name">
+                </div>
+                <div class="mb-3">
+                    <label>Birthdate:</label>
+                    <input class="form-control" type="text" name="birthdate" id="birthdate">
+                </div>
+                <div class="mb-3">
+                    <label>Nid number:</label>
+                    <input class="form-control" type="text" name="nid" id="nid">
+                </div>
+                <div class="mb-3">
+                    <label>Mobile number:</label>
+                    <input class="form-control" type="text" name="phone" id="phone">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label>Post code:</label>
+                    <input class="form-control" type="text" name="postcode" id="postcode">
+                </div>
+                <div class="mb-3">
+                    <label>Area of duty:</label>
+                    <input class="form-control" type="text" name="area" id="area">
+                </div>
+                <div class="mb-3">
+                    <label>Image:</label>
+                    <input class="form-control" type="file" name="image" id="image">
+                </div>
+            </div>
+        </div>
+        <div class="mx-auto text-center m-5">
+            <button type="submit" class="btn btn-outline-success w-50">Submit</button>
+        </div>
+    </form>
+    </div>
+
+
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Birthdate</th>
+              <th scope="col">Nid</th>
+              <th scope="col">Phone No</th>
+              <th scope="col">Post code</th>
+              <th scope="col">area of duty</th>
+              <th scope="col">image</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%mans.forEach(function(mn){%>
+            <tr>
+              <th scope="row"><%=mn.id%></th>
+              <td><%=mn.delivery_man_name%></td>
+              <td><%=mn.birthdate%></td>
+              <td><%=mn.nid%></td>
+              <td><%=mn.phone%></td>
+              <td><%=mn.postcode%></td>
+              <td><%=mn.duty_area%></td>
+              <%if(mn.image){%>
+              <td><img src="<%=mn.image%>" alt=""></td>
+              <%}else{%>
+               <td><img src="https://pixlok.com/wp-content/uploads/2021/03/default-user-profile-picture.jpg" alt=""width="70px"></td>
+              <%}%> 
+            </tr>
+            <%});%>
+          </tbody>
+    </table>
+    
+</div>
+ <!-- Bootstrap Bundle with Popper -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ 
+</body>
+</html>

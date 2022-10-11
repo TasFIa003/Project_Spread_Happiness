@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education | Spread Happiness</title>
+      <!---bootstrap cdn link-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <!--custom css link-->
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/otherpage.css">
+      <!---font awesome cdn bootstrap-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+      <!-- Bootstrap icon-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+      <!-- jQuery -->
+      <script src="//raw.github.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <!--navbar section-->
+    <nav class="navbar navbar-light shadow-lg" style="background-color: rgba(243, 247, 247, 0.637);">
+        <div class="container-fluid">
+          <a class="logo navbar-brand text-success d-inline-block align-text-top" href="/">Spread Happiness</a>
+          <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <p class="nav-link text-muted h6"><i class="bi bi-envelope-fill"></i> teamSpreadHappiness@gmail.com</p>
+            </li>
+            <li class="nav-item">
+              <p class="nav-link text-muted h6"><i class="bi bi-telephone-fill"></i> +880-1706794170</p>
+            </li>
+            
+          </ul>
+        </div>
+    </nav>
+
+    <!--education card system-->
+    <div class="conatiner ">
+  <%educations.forEach(function(education){%>
+  <div class="show-more-obj">
+      <div class="card  m-5 shadow" style="max-width: 540;">
+       
+        <div class="row g-0">
+          <div class="col-md-4">
+            <%if(education.image){%>
+              <img  src="<%=education.image%>" class="img-fluid rounded m-3" alt="..." width="300">
+            <%}else{%>
+            <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPehc8rVewAwJzXHroVsbwRUWVOfRg4frqmw&usqp=CAU" class="img-fluid rounded m-3" alt="..." width="300">
+            <%}%>
+          </div>
+          <div class=" col-md-8">
+            <div class="card-body">
+              <div class="mb-3">
+                <p class="card-title fs-5">Code: <span class="text-danger"><%=education.code%></span></p>
+                <p class="card-text fs-5">Name: <span class=" text-muted"><%=education.name%></span></p>
+                <p class="card-text fs-5">
+                  Age: <span class="text-muted "><%=education.age%> </span> 
+                 Class: <span class="text-muted"><%=education.class%></span> 
+                 Financial expense needed for education: <span class="  text-muted"><%=education.money%></span>
+                </p>
+                <p class="card-text fs-5">Details:</p>
+                <p class="card-text fs-5"><%=education.details%></p>
+                <p class="card-text fs-5">More Information: <a class="text-decoration-none" href="#">
+                  <%=education.link%></a></p>
+                </div> 
+            </div>
+            <button class="btn btn-success  m-3 w-25 text-center " data-bs-toggle="modal" data-bs-target="#exampleModal">Apply</button>
+
+          <!-- Modal -->
+          <form action="/applicants" method="post">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Your Information</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                   </div>
+                  <div class="modal-body">
+                     
+                        <div class="mb-3">
+                          <label  class="form-label">Apply code(mentioned):</label>
+                          <input type="text" name="code" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                          <label  class="form-label">Name:</label>
+                          <input type="text" name="name" class="form-control" placeholder="your name" required>
+                        </div>
+                        <div class="mb-3">
+                          <label  class="form-label">Email address</label>
+                          <input type="email" name="mail" class="form-control" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                          <label  class="form-label">Address and phone number</label>
+                          <textarea class="form-control" name="details" rows="3"></textarea>
+                        </div>
+            
+                  </div>
+                 <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                 <button type="submit" class="btn btn-success">Confirm</button>
+                </div>
+               </div>
+              </div>
+            </div>
+          </form>
+          </div>
+       
+      </div>
+      
+    </div>
+  </div>
+  <%});%>
+
+   <div class=" mx-auto text-center">
+      <a class=" btn btn-outline-dark m-5 w-25 show-more">Show more</a>
+   </div>
+  </div>
+
+  <div class="footer">
+    <div class="fs-6  text-center border-2 border-light bg-light text-dark">	&copy; Tasfia Noor 2022</div>
+  </div>
+      
+    <!-- Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+     <script>
+     
+
+      $(document).ready(function(){   
+      //show more option
+       var size_item = $('.show-more-obj').length;
+        var v=2;
+          // hide all divs with this class.
+          $('.show-more-obj').hide(); 
+          //class:lt(index)-> selects elements with an index number less than a specified number.(lt - less than)
+          //suppose,let show-more-object is list . so first two elements will show up which are in 0 and 1 index < v=2.
+          $('.show-more-obj:lt('+v+')').show();
+          //when btn will be  clicked ,this function will work.
+          $('.show-more').click(function () {
+          if(v+2<=size_item){
+            v=v+2; // will show next two index elements
+          }else{
+            v=size_item; //v+2>size_item
+          }
+          $('.show-more-obj:lt('+v+')').show();
+           // hide show more button if all items are visible
+          if($(".show-more-obj:visible").length >= size_item ){ $(".show-more").hide(); }
+         });
+      });
+    
+     </script>
+
+    
+</body>
+</html>

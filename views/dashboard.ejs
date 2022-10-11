@@ -1,0 +1,66 @@
+<%-include('partials/adminheader'); -%>
+      <div class="container m-5">
+        <div class="headline">
+          <h4 class="text-center ">Donators Comment</h4>
+        </div>
+        <%cms.forEach(function(cm){%>
+        <div class="card m-5 bg-light shadow-lg" style="max-width: 1040px;">
+          <div class="row g-0">
+            
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%=cm.name%></h5>
+                <p class="card-text"><%=cm.details%></p>
+                <form action="/dashboard/<%=cm.id%>" method="post">
+                <button type="submit" class="btn btn-success btn-sm" ><i class="bi bi-check-lg"></i></button>
+                <a  class="btn btn-danger btn-sm" href="/delete_comment/<%=cm.id%>"><i class="bi bi-x-lg"></i></a>
+               </form>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <% if(cm.image){ %>
+                <img src="<%=cm.image%>" class="img-fluid p-3" alt="..." width="200px">
+                <%}else{%>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPehc8rVewAwJzXHroVsbwRUWVOfRg4frqmw&usqp=CAU" class="img-fluid p-3" alt="..." width="200px">
+                <% } %> 
+            </div>
+          </div>
+   
+        </div>
+       <%});%>
+        <div class=" mx-auto text-center">
+          <a class=" btn btn-outline-dark m-5 w-25 show-more">Show more</a>
+       </div>
+      </div>
+  
+    <!-- Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <script>
+     
+
+      $(document).ready(function(){   
+      //show more option
+       var size_item = $('.card').length;
+        var v=3;
+          // hide all divs with this class.
+          $('.card').hide(); 
+          //class:lt(index)-> selects elements with an index number less than a specified number.(lt - less than)
+          //suppose,let show-more-object is list . so first two elements will show up which are in 0 and 2 index < v=3.
+          $('.card:lt('+v+')').show();
+          //when btn will be  clicked ,this function will work.
+          $('.show-more').click(function () {
+          if(v+3<=size_item){
+            v=v+3; // will show next two index elements
+          }else{
+            v=size_item; //v+3>size_item
+          }
+          $('.card:lt('+v+')').show();
+           // hide show more button if all items are visible
+          if($(".card:visible").length >= size_item ){ $(".show-more").hide(); }
+         });
+      });
+    
+     </script>
+
+</body>
+</html>

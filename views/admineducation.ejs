@@ -1,0 +1,67 @@
+<%-include('partials/adminheader'); -%>
+      <div class="container">
+          <h4 class="text-center text-dark m-5">Adding Information about NGO/Organization</h4>
+          <form action="/education_information" method="post" enctype="multipart/form-data">
+           
+             <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name:</label>
+                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="">
+             </div>
+             <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label">Age:</label>
+                <input type="text" name="age" class="form-control" id="exampleFormControlInput2" placeholder="">
+             </div>
+             <div class="mb-3">
+                <label for="exampleFormControlInput3" class="form-label">Class:</label>
+                <input type="text" name="class" class="form-control" id="exampleFormControlInput3" placeholder="">
+             </div>
+             <div class="mb-3">
+                <label for="exampleFormControlInput4" class="form-label">Expense needed:</label>
+                <input type="text" name="money" class="form-control" id="exampleFormControlInput4" placeholder="">
+             </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">About:</label>
+                <textarea class="form-control" name="details" id="exampleFormControlTextarea1" rows="5"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput5" class="form-label">More information link</label>
+                <input type="text" class="form-control" name="link" id="exampleFormControlInput5" >
+              </div>
+              
+              <div class="mb-3">
+                <label for="formFile" class="form-label">Image file:</label>
+                <input class="form-control" name="image" type="file" id="formFile">
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-bold ">Code:</label>
+                <input type="text" name="code" class="p-2  w-50" placeholder="Create code" id="code" readonly="">
+                <button type="button" onclick="getCode()" class="btn btn-outline-dark ">Generate Code</button>
+             </div>
+              <div class="text-center mx-auto m-5">
+                <button type="submit" class="btn btn-outline-dark  w-25">Submit</button>
+              </div>
+ 
+          </form>
+      </div>
+  
+    <!-- Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     
+     <script>
+           function getCode(){
+                var chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                var length=7;
+                var code="";
+                for(var i=0;i<length;i++){
+                  code+=chars[Math.floor(Math.random()*chars.length)];
+                  }
+
+               document.getElementById("code").value=code;
+
+           }
+     </script>
+
+     
+
+</body>
+</html>

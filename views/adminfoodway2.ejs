@@ -1,0 +1,64 @@
+<%-include('partials/adminheader'); -%> 
+      <div class="container m-5">
+        
+        <%fds.forEach(function(fd){%>
+        <div class="card m-5 bg-light shadow-lg" style="max-width: 1040px;">
+          <div class="row g-0">
+            
+            <div class="col-md-12">
+              <div class="card-body">
+                <p class="card-title">Name: <span class="text-muted"><%=fd.name%></span></p>
+                <p class="card-text">Address: <span class="text-muted"><%=fd.address%></span></p>
+                <p class="card-title">Phone: <span class="text-muted">+88<%=fd.phone%></span></p>
+                <p class="card-title">Post Code: <span class="text-muted"><%=fd.postcode%></span></p>
+                <p class="card-title">Thana: <span class="text-muted"><%=fd.thana%></span></p>
+                <form action="/food-donation/<%=fd.id%>" method="post">
+                  <button type="submit" class="btn btn-success btn-sm text-uppercase">Check <i class="bi bi-check-lg"></i></button>
+                </form>
+
+              
+
+              </div>
+            </div>
+           
+          </div>
+   
+        </div>
+        <%});%>
+      
+        <div class=" mx-auto text-center">
+          <a class=" btn btn-outline-dark m-5 w-25 show-more">Show more</a>
+       </div>
+      </div>
+  
+    <!-- Bootstrap Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <script>
+     
+
+      $(document).ready(function(){   
+      //show more option
+       var size_item = $('.card').length;
+        var v=3;
+          // hide all divs with this class.
+          $('.card').hide(); 
+          //class:lt(index)-> selects elements with an index number less than a specified number.(lt - less than)
+          //suppose,let show-more-object is list . so first two elements will show up which are in 0 and 1 index < v=2.
+          $('.card:lt('+v+')').show();
+          //when btn will be  clicked ,this function will work.
+          $('.show-more').click(function () {
+          if(v+3<=size_item){
+            v=v+3; // will show next two index elements
+          }else{
+            v=size_item; //v+3>size_item
+          }
+          $('.card:lt('+v+')').show();
+           // hide show more button if all items are visible
+          if($(".card:visible").length >= size_item ){ $(".show-more").hide(); }
+         });
+      });
+    
+     </script>
+
+</body>
+</html>

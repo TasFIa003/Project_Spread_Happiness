@@ -1,0 +1,66 @@
+<%-include('partials/adminheader'); -%>
+<div class="container">
+    <div class="row">
+      <%foodis.forEach(function(foodi){%>
+        <div class="col-12">
+            <div class="card bg-dark text-white m-5 mx-auto" style="max-width: 800px;height: 420px;">
+               <%if(foodi.image){%>
+                <img src="<%=foodi.image%>" class="card-img" alt="..." width="400" height="420">
+                <%}else{%>
+                <img src="https://static.honeykidsasia.com/wp-content/uploads/2018/10/food-waste-donation-to-charity.jpg" class="card-img" alt="..." width="400" height="420">
+                <%}%>
+                <div class="card-img-overlay">
+                  <h5 class="card-title"><%=foodi.title%></h5>
+                  <p class="card-text"><%=foodi.details%>
+                  </p>
+                  <p class="card-text">website link: <a href="<%=foodi.website%>"><%=foodi.website%></a></p>
+                  <p class="card-text">Facebook page link: <a href="<%=foodi.facebook%>"><%=foodi.facebook%></a></p>
+                  <a  class="btn btn-danger " href="/delete_foodinfo/<%=foodi.id%>">Delete</a>
+                </div>
+              </div>
+        </div>
+        <%});%>
+        
+    </div>
+ 
+   
+    <div class=" mx-auto text-center">
+        <a class=" btn btn-outline-dark m-5 w-25 show-more">Show more</a>
+    </div>
+</div>
+    
+<!--  donation way ends-->
+<div class="footer">
+<div class="fs-6  text-center border-2 border-light bg-light ">	&copy; Tasfia Noor 2022</div>
+</div>
+<!-- Bootstrap Bundle with Popper -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+ <script>
+ 
+
+    $(document).ready(function(){   
+    //show more option
+     var size_item = $('.col-12').length;
+      var v=2;
+        // hide all divs with this class.
+        $('.col-12').hide(); 
+        //class:lt(index)-> selects elements with an index number less than a specified number.(lt - less than)
+        //suppose,let .col-6 is list . so first two elements will show up which are in 0 and 1 index < v=2.
+        $('.col-12:lt('+v+')').show();
+        //when btn will be  clicked ,this function will work.
+        $('.show-more').click(function () {
+        if(v+2<=size_item){
+          v=v+2; // will show next two index elements
+        }else{
+          v=size_item; //v+2>size_item
+        }
+        $('.col-12:lt('+v+')').show();
+         // hide show more button if all items are visible
+        if($(".col-12:visible").length >= size_item ){ $(".show-more").hide(); }
+       });
+    });
+  
+   </script>
+</body>
+</html>
